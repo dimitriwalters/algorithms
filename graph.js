@@ -43,7 +43,7 @@ function DFS(source, dest, graph) {
     return false;
 }
 
-// https://upload.wikimedia.org/wikipedia/commons/1/1f/Depth-first-tree.svg
+// http://www.algolist.net/img/graphs/DFS/DFS-example-1.png
 var graph = [[4], [4,5], [5], [1,2,5], [2,3,4], []];
 
 console.log(DFS(1, 3, graph));
