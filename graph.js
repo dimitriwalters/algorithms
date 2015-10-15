@@ -30,7 +30,7 @@ function DFS(source, dest, graph) {
         visited.push(current);
         neighbours = graph[current - 1];
 
-        for (var i=0; i<neighbours.length; i++) {
+        for (var i=neighbours.length-1; i>=0; i--) {
             // console.log('neighbour: ' + neighbours[i]);
             if (neighbours[i] === dest) {
                 return true;
