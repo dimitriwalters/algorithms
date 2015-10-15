@@ -98,9 +98,10 @@ function arraysEqual(a1,a2) {
 
 // http://pages.cpsc.ucalgary.ca/~jacobs/Courses/cpsc331/F08/tutorials/Figures/directed_graph_example1.gif
 var graph = [[1, 4], [2], [0,1], [2], [5], [4]];
+var start = 0;
 
-var resultsOfDFS = DFS(graph, 0);
-var resultsOfBFS = BFS(graph, 0);
+var resultsOfDFS = DFS(graph, start);
+var resultsOfBFS = BFS(graph, start);
 
 if (arraysEqual(resultsOfDFS, resultsOfBFS)) {
     console.log(resultsOfDFS);
