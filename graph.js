@@ -96,6 +96,17 @@ function arraysEqual(a1,a2) {
     return JSON.stringify(a1) == JSON.stringify(a2);
 }
 
+function testSearch(G, s) {
+    var resultsOfDFS = DFS(G, s);
+    var resultsOfBFS = BFS(G, s);
+
+    if (arraysEqual(resultsOfDFS, resultsOfBFS)) {
+        console.log(resultsOfDFS);
+    } else {
+        console.log("error in implementations");
+    }
+}
+
 // http://pages.cpsc.ucalgary.ca/~jacobs/Courses/cpsc331/F08/tutorials/Figures/directed_graph_example1.gif
 var graph = [[1, 4], [2], [0,1], [2], [5], [4]];
 var start = 0;
@@ -103,8 +114,4 @@ var start = 0;
 var resultsOfDFS = DFS(graph, start);
 var resultsOfBFS = BFS(graph, start);
 
-if (arraysEqual(resultsOfDFS, resultsOfBFS)) {
-    console.log(resultsOfDFS);
-} else {
-    console.log("error in implementations");
-}
+testSearch(graph, start);
