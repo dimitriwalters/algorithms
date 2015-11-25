@@ -45,6 +45,33 @@ function DFS(G, s) {
     return vertices;
 }
 
+function recursiveDFS(G, s) {
+    var UNDISCOVERED = "undiscovered";
+    var DISCOVERED = "discovered";
+    var covers = [];
+
+    for (var i=0; i<G.length; i++) {
+        covers[i] = UNDISCOVERED;
+    }
+
+    return DFSvisit(G, s, covers);
+}
+
+function DFSvisit(G, v, covers) {
+    var UNDISCOVERED = "undiscovered";
+    var DISCOVERED = "discovered";
+    var neighbours = G[v];
+    covers[v] = DISCOVERED;
+
+    for (var i=0; i<neighbours.length; i++) {
+        if (covers[neighbours[i]] === UNDISCOVERED) {
+            covers = DFSvisit(G, neighbours[i], covers);
+        }
+    }
+
+    return covers;
+}
+
 function Queue() {
     var arr = [];
     return {
@@ -92,23 +119,8 @@ function BFS(G, s) {
     return vertices;
 }
 
-function arraysEqual(a1,a2) {
-    return JSON.stringify(a1) == JSON.stringify(a2);
-}
-
-function testSearch(G, s) {
-    var resultsOfDFS = DFS(G, s);
-    var resultsOfBFS = BFS(G, s);
-
-    if (arraysEqual(resultsOfDFS, resultsOfBFS)) {
-        console.log(resultsOfDFS);
-    } else {
-        console.log("error in implementations");
-    }
-}
-
 // http://pages.cpsc.ucalgary.ca/~jacobs/Courses/cpsc331/F08/tutorials/Figures/directed_graph_example1.gif
 var graph = [[1, 4], [2], [0,1], [2], [5], [4]];
 var start = 0;
 
-testSearch(graph, start);
+console.log(recursiveDFS(graph, start));
