@@ -111,7 +111,4 @@ function testSearch(G, s) {
 var graph = [[1, 4], [2], [0,1], [2], [5], [4]];
 var start = 0;
 
-var resultsOfDFS = DFS(graph, start);
-var resultsOfBFS = BFS(graph, start);
-
 testSearch(graph, start);
