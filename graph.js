@@ -1,3 +1,6 @@
+var UNDISCOVERED = "undiscovered";
+var DISCOVERED = "discovered";
+
 function Stack() {
     var arr = [];
     return {
@@ -17,8 +20,6 @@ function Stack() {
 }
 
 function DFS(G, s) {
-    var UNDISCOVERED = "undiscovered";
-    var DISCOVERED = "discovered";
     var vertices = [];
     var neighbours;
     var current;
@@ -46,8 +47,6 @@ function DFS(G, s) {
 }
 
 function recursiveDFS(G, s) {
-    var UNDISCOVERED = "undiscovered";
-    var DISCOVERED = "discovered";
     var covers = [];
 
     for (var i=0; i<G.length; i++) {
@@ -58,8 +57,6 @@ function recursiveDFS(G, s) {
 }
 
 function DFSvisit(G, v, covers) {
-    var UNDISCOVERED = "undiscovered";
-    var DISCOVERED = "discovered";
     var neighbours = G[v];
     covers[v] = DISCOVERED;
 
@@ -91,8 +88,6 @@ function Queue() {
 }
 
 function BFS(G, s) {
-    var UNDISCOVERED = "undiscovered";
-    var DISCOVERED = "discovered";
     var vertices = [];
     var neighbours = [];
     var current;
